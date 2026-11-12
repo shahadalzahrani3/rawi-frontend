@@ -120,3 +120,33 @@ function App() {
 }
 
 export default App
+
+import { BrowserRouter, Routes, Route }
+from "react-router-dom";
+<BrowserRouter>
+
+<Routes>
+
+<Route
+ path="/dashboard"
+ element={<AuthorDashboard />}
+/>
+
+<Route
+ path="/books"
+ element={<MyBooks />}
+/>
+
+<Route
+ path="/upload"
+ element={<UploadBook />}
+/>
+
+<Route
+ path="/auditions"
+ element={<Auditions />}
+/>
+
+</Routes>
+
+</BrowserRouter>
