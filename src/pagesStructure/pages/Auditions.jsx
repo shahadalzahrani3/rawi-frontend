@@ -21,27 +21,38 @@ function Auditions() {
   };
 
   return (
-    <div>
-      <h2>التقديمات</h2>
+    <section className="page-section">
+      <h1>التقديمات</h1>
 
-      {applications.map((narrator) => (
-        <div key={narrator.id}>
+      <div className="audition-list">
+        {applications.map((narrator) => (
+          <article className="audition-card" key={narrator.id}>
           <h3>{narrator.name}</h3>
           <p>{narrator.language}</p>
           <p>{narrator.experience} سنوات</p>
           <p>الحالة: {narrator.status}</p>
 
-          <button type="button" onClick={() => acceptAudition(narrator.id)}>
-            قبول
-          </button>
-
-          <button type="button" onClick={() => rejectAudition(narrator.id)}>
-            رفض
-          </button>
-        </div>
-      ))}
-    </div>
-      );
+            <div className="audition-actions">
+              <button
+                className="button"
+                type="button"
+                onClick={() => acceptAudition(narrator.id)}
+              >
+                قبول
+              </button>
+              <button
+                className="button button-secondary"
+                type="button"
+                onClick={() => rejectAudition(narrator.id)}
+              >
+                رفض
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export default Auditions;

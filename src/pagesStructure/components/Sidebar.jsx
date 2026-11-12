@@ -1,33 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidebar() {
+  const { pathname } = useLocation();
+
   return (
-    <div className="w-64 bg-white border-l h-screen p-6">
-
-      <h2 className="text-xl font-bold mb-8">
-        RAWI
-      </h2>
-
-      <nav className="flex flex-col gap-4">
-
-        <Link to="/dashboard">
+    <aside className="sidebar">
+      <h2 className="sidebar-brand">RAWI</h2>
+      <nav aria-label="التنقل الرئيسي">
+        <Link className={pathname === "/dashboard" ? "active" : ""} to="/dashboard">
           لوحة التحكم
         </Link>
-
-        <Link to="/books">
+        <Link className={pathname === "/books" ? "active" : ""} to="/books">
           مشاريعي
         </Link>
-
-        <Link to="/upload">
+        <Link className={pathname === "/upload" ? "active" : ""} to="/upload">
           إضافة كتاب
         </Link>
-
-        <Link to="/auditions">
+        <Link className={pathname === "/auditions" ? "active" : ""} to="/auditions">
           التسليمات
         </Link>
-
       </nav>
-    </div>
+    </aside>
   );
 }
 
