@@ -11,6 +11,7 @@ import AdminBooks from "./pagesStructure/pages/admin/AdminBooks";
 import AdminBookVisibility from "./pagesStructure/pages/admin/AdminBookVisibility";
 import AdminAuditions from "./pagesStructure/pages/admin/AdminAuditions";
 import AdminProjects from "./pagesStructure/pages/admin/AdminProjects";
+import AdminDeliveries from "./pagesStructure/pages/admin/AdminDeliveries";
 import "./App.css";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path="book-visibility" element={<AdminBookVisibility />} />
           <Route path="auditions" element={<AdminAuditions />} />
           <Route path="projects" element={<AdminProjects />} />
+          <Route path="deliveries" element={<AdminDeliveries />} />
 
         </Route>
       </Routes>
