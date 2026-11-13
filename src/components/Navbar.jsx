@@ -1,19 +1,53 @@
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar">
-      <Link to="/" className="logo">
-        راوي | Rawi
+    <header className="site-header" dir="rtl">
+
+      {/* Rawi Logo */}
+      <Link to="/" className="brand">
+        <strong>راوي</strong>
+        <small>R A W I</small>
       </Link>
 
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/register">Sign Up</Link>
-        <Link to="/login">Login</Link>
+      {/* Navigation Links */}
+      <nav className="primary-nav">
+
+        <NavLink to="/" end>
+          الرئيسية
+        </NavLink>
+
+        <NavLink to="/register">
+          إنشاء حساب
+        </NavLink>
+
+        <NavLink to="/login">
+          تسجيل الدخول
+        </NavLink>
+
+      </nav>
+
+      {/* Login and Register Buttons */}
+      <div className="header-actions">
+
+        <Link
+          to="/login"
+          className="button button-outline"
+        >
+          تسجيل الدخول
+        </Link>
+
+        <Link
+          to="/register"
+          className="button button-dark"
+        >
+          إنشاء حساب
+        </Link>
+
       </div>
-    </nav>
+
+    </header>
   );
 }
 
