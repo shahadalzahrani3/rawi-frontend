@@ -9,6 +9,7 @@ import AdminLayout from "./pagesStructure/components/AdminLayout";
 import AdminUsers from "./pagesStructure/pages/admin/AdminUsers";
 import AdminBooks from "./pagesStructure/pages/admin/AdminBooks";
 import AdminBookVisibility from "./pagesStructure/pages/admin/AdminBookVisibility";
+import AdminAuditions from "./pagesStructure/pages/admin/AdminAuditions";
 import "./App.css";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route path="users" element={<AdminUsers />} />
           <Route path="book-approval" element={<AdminBooks />} />
           <Route path="book-visibility" element={<AdminBookVisibility />} />
+          <Route path="auditions" element={<AdminAuditions />} />
 
         </Route>
       </Routes>
