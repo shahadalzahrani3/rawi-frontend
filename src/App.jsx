@@ -6,6 +6,7 @@ import MyBooks from "./pagesStructure/pages/MyBooks";
 import UploadBooks from "./pagesStructure/pages/UploadBooks";
 import AdminDashboard from "./pagesStructure/pages/admin/AdminDashboard";
 import AdminLayout from "./pagesStructure/components/AdminLayout";
+import AdminUsers from "./pagesStructure/pages/admin/AdminUsers";
 import "./App.css";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         {/* Admin pages */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="users" element={<AdminUsers />} />
         </Route>
       </Routes>
     </BrowserRouter>
