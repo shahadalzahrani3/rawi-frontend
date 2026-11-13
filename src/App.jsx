@@ -4,6 +4,7 @@ import Auditions from "./pagesStructure/pages/Auditions";
 import AuthorDashboard from "./pagesStructure/pages/AuthorDashboard";
 import MyBooks from "./pagesStructure/pages/MyBooks";
 import UploadBooks from "./pagesStructure/pages/UploadBooks";
+import AdminDashboard from "./pagesStructure/pages/admin/AdminDashboard";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/books" element={<MyBooks />} />
             <Route path="/upload" element={<UploadBooks />} />
             <Route path="/auditions" element={<Auditions />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Routes>
         </main>
       </div>
