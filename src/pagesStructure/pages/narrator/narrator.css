@@ -1078,3 +1078,59 @@
     padding-inline-start: 0;
   }
 }
+/* ==========================================
+   MY PROJECTS + PROJECT WORK
+========================================== */
+
+.nr-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+  gap: 16px;
+}
+
+.nr-work {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nr-work.is-faded {
+  opacity: 0.6;
+}
+
+.nr-progress {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #e3e4e0;
+}
+
+.nr-progress span {
+  display: block;
+  height: 100%;
+  background: #4c5554;
+}
+
+.nr-work-deadline {
+  margin: 0;
+  font-size: 20px;
+}
+
+.nr-note {
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  border-inline-start: 3px solid #7a6136;
+  background: #f5efe3;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.nr-gap {
+  margin-top: 16px;
+}
+
+.nr-list li small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+}

@@ -35,6 +35,8 @@ import VoiceSamples from "./pagesStructure/pages/narrator/VoiceSamples";
 import BrowseProjects from "./pagesStructure/pages/narrator/BrowseProjects";
 import ProjectDetails from "./pagesStructure/pages/narrator/ProjectDetails";
 import MyAuditions from "./pagesStructure/pages/narrator/MyAuditions";
+import MyProjects from "./pagesStructure/pages/narrator/MyProjects";
+import ProjectWork from "./pagesStructure/pages/narrator/ProjectWork";
 import "./App.css";
 
 // Layout for public pages
@@ -203,6 +205,8 @@ function App() {
            <Route path="projects" element={<BrowseProjects />} />
            <Route path="projects/:projectId" element={<ProjectDetails />} />
            <Route path="auditions" element={<MyAuditions />} />
+           <Route path="my-projects" element={<MyProjects />} />
+          <Route path="my-projects/:projectId" element={<ProjectWork />} />
         </Route>
       </Routes>
     </BrowserRouter>
