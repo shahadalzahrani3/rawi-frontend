@@ -1,31 +1,60 @@
+
+/* ========================================
+   RAWI - ARABIC FONT
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+/* ========================================
+   GLOBAL WEBSITE STYLING
+======================================== */
+
 :root {
-  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-  color: #23332f;
-  background: #f5f7f4;
+  font-family: 'Cairo', Tahoma, Arial, sans-serif;
+
+  color: #212728;
+  background: #f7f7f5;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* Author Dashboard Colors */
   --color-primary: #23594b;
   --color-primary-dark: #194438;
   --color-accent: #d29b52;
+
   --color-text: #23332f;
   --color-muted: #687772;
   --color-border: #e0e7e2;
   --color-surface: #ffffff;
+
   --shadow-card: 0 8px 24px rgba(31, 63, 51, 0.07);
 }
+
+/* ========================================
+   GLOBAL BOX SIZING
+======================================== */
 
 * {
   box-sizing: border-box;
 }
 
+/* ========================================
+   BODY
+======================================== */
+
 body {
+  margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  margin: 0;
 }
+
+/* ========================================
+   FORM ELEMENTS
+======================================== */
 
 button,
 input,
@@ -34,6 +63,45 @@ textarea {
   font: inherit;
 }
 
+/* ========================================
+   BUTTONS
+======================================== */
+
+button {
+  cursor: pointer;
+}
+
+/* ========================================
+   LINKS
+======================================== */
+
+a {
+  color: inherit;
+}
+
+/* ========================================
+   MAIN REACT CONTAINER
+======================================== */
+
+#root {
+  min-height: 100vh;
+}
+
+/* ========================================
+   HEADINGS AND PARAGRAPHS
+======================================== */
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+/* ========================================
+   MOBILE TOUCH STYLING
+======================================== */
+
 button,
 a,
 input,
@@ -41,6 +109,10 @@ select,
 textarea {
   -webkit-tap-highlight-color: transparent;
 }
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
 
 button:focus-visible,
 a:focus-visible,
