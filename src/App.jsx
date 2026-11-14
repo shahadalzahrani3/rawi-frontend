@@ -31,6 +31,7 @@ import UploadBooks from "./pagesStructure/pages/UploadBooks";
 import NarratorLayout from "./pagesStructure/components/NarratorLayout";
 import NarratorDashboard from "./pagesStructure/pages/narrator/NarratorDashboard";
 import NarratorProfile from "./pagesStructure/pages/narrator/NarratorProfile";
+import VoiceSamples from "./pagesStructure/pages/narrator/VoiceSamples";
 import "./App.css";
 
 // Layout for public pages
@@ -195,6 +196,7 @@ function App() {
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<NarratorDashboard />} />
           <Route path="profile" element={<NarratorProfile />} />
+          <Route path="samples" element={<VoiceSamples />} />
         </Route>
       </Routes>
     </BrowserRouter>
