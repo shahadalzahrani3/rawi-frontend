@@ -4,14 +4,16 @@ const narrators = [
     name: "ريم القحطاني",
     language: "فصحى",
     experience: 5,
-    status: "Pending"
+    status: "Pending",
+    sampleAudio: null
   },
   {
     id: 2,
     name: "خالد المصري",
     language: "فصحى",
     experience: 11,
-    status: "Pending"
+    status: "Pending",
+    sampleAudio: null
   }
 ];
 
