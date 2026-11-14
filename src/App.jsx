@@ -26,6 +26,7 @@ import Sidebar from "./pagesStructure/components/Sidebar";
 import Auditions from "./pagesStructure/pages/Auditions";
 import AuthorDashboard from "./pagesStructure/pages/AuthorDashboard";
 import MyBooks from "./pagesStructure/pages/MyBooks";
+import Profile from "./pagesStructure/pages/Profile";
 import UploadBooks from "./pagesStructure/pages/UploadBooks";
 // Narrator Pages - Norah
 import NarratorLayout from "./pagesStructure/components/NarratorLayout";
@@ -127,28 +128,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
         {/* Public Pages - Shahad */}
         <Route element={<PublicLayout />}>
-
           <Route path="/" element={<Home />} />
-
           <Route path="/login" element={<Login />} />
-
           <Route path="/register" element={<Register />} />
-
           <Route path="/activate" element={<Activate />} />
-
-          <Route
-            path="/forgot-password"
-            element={<ForgotPassword />}
-          />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
           {/* Admin Dashboard - Temporary */}
-          <Route
-            path="/admin/dashboard"
-            element={<DashboardPreview />}
-          />
+          <Route path="/admin/dashboard" element={<DashboardPreview />} />
 
           {/* Error Page */}
           <Route
@@ -165,48 +154,28 @@ function App() {
               </main>
             }
           />
-
         </Route>
 
         {/* Author Pages - Teammate */}
         <Route element={<AuthorLayout />}>
-
-          <Route
-            path="/author/dashboard"
-            element={<AuthorDashboard />}
-          />
-
-          <Route
-            path="/dashboard"
-            element={<Navigate to="/author/dashboard" replace />}
-          />
-
-          <Route
-            path="/books"
-            element={<MyBooks />}
-          />
-
-          <Route
-            path="/upload"
-            element={<UploadBooks />}
-          />
-
-          <Route
-            path="/auditions"
-            element={<Auditions />}
-          />
-
+          <Route path="/author/dashboard" element={<AuthorDashboard />} />
+          <Route path="/dashboard" element={<Navigate to="/author/dashboard" replace />} />
+          <Route path="/books" element={<MyBooks />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/upload" element={<UploadBooks />} />
+          <Route path="/auditions" element={<Auditions />} />
         </Route>
+
         {/* Narrator Pages - Norah */}
         <Route path="/narrator" element={<NarratorLayout />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<NarratorDashboard />} />
           <Route path="profile" element={<NarratorProfile />} />
           <Route path="samples" element={<VoiceSamples />} />
-           <Route path="projects" element={<BrowseProjects />} />
-           <Route path="projects/:projectId" element={<ProjectDetails />} />
-           <Route path="auditions" element={<MyAuditions />} />
-           <Route path="my-projects" element={<MyProjects />} />
+          <Route path="projects" element={<BrowseProjects />} />
+          <Route path="projects/:projectId" element={<ProjectDetails />} />
+          <Route path="auditions" element={<MyAuditions />} />
+          <Route path="my-projects" element={<MyProjects />} />
           <Route path="my-projects/:projectId" element={<ProjectWork />} />
           <Route path="payments" element={<Payments />} />
         </Route>

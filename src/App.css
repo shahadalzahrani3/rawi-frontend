@@ -595,6 +595,7 @@ select:focus-visible {
   grid-template-columns: 250px minmax(0, 1fr);
   direction: rtl;
   min-height: 100vh;
+  background: #f3f3ef;
 }
 
 .app-layout main {
@@ -616,7 +617,7 @@ select:focus-visible {
   gap: 36px;
   height: 100vh;
   padding: 32px 20px;
-  background: var(--color-primary);
+  background: var(--ink);
   color: #fff;
 }
 
@@ -644,8 +645,25 @@ select:focus-visible {
 
 .sidebar nav a:hover,
 .sidebar nav a.active {
-  background: rgba(255, 255, 255, 0.14);
+  background: #424b49;
   color: #fff;
+}
+
+.sidebar-logout {
+  margin-top: auto;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  text-align: right;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+.sidebar-logout:hover {
+  background: #424b49;
 }
 
 /* ==========================================
@@ -674,7 +692,7 @@ select:focus-visible {
 .dashboard-card,
 .audition-card {
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: 8px;
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
@@ -725,6 +743,22 @@ select:focus-visible {
   color: var(--color-muted);
 }
 
+.audition-sample {
+  margin-top: 18px;
+}
+
+.audition-sample h4 {
+  margin: 0 0 8px;
+  color: var(--color-text);
+  font-size: 15px;
+}
+
+.audition-sample audio {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
 .audition-actions {
   display: flex;
   gap: 10px;
@@ -739,7 +773,7 @@ select:focus-visible {
   min-height: 40px;
   padding: 9px 16px;
   border: 0;
-  border-radius: 9px;
+  border-radius: 5px;
   background: var(--color-primary);
   color: white;
   cursor: pointer;
@@ -754,12 +788,12 @@ select:focus-visible {
 }
 
 .app-layout .button-secondary {
-  background: #edf1ee;
+  background: #edeeeb;
   color: var(--color-text);
 }
 
 .app-layout .button-secondary:hover {
-  background: #dfe7e1;
+  background: #e0e1dc;
 }
 
 /* ==========================================
@@ -774,7 +808,7 @@ select:focus-visible {
 .books-table-wrap {
   overflow-x: auto;
   border: 1px solid var(--color-border);
-  border-radius: 14px;
+  border-radius: 8px;
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
@@ -792,7 +826,7 @@ select:focus-visible {
 }
 
 .books-table th {
-  background: #f0f4f1;
+  background: #edeeeb;
   color: var(--color-primary);
   font-weight: 700;
 }
@@ -811,7 +845,7 @@ select:focus-visible {
   width: min(100%, 640px);
   padding: clamp(20px, 4vw, 32px);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: 8px;
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
@@ -827,7 +861,7 @@ select:focus-visible {
   min-height: 46px;
   padding: 11px 13px;
   border: 1px solid var(--color-border);
-  border-radius: 9px;
+  border-radius: 5px;
   background: #fff;
   color: var(--color-text);
 }
@@ -840,140 +874,6 @@ select:focus-visible {
 .upload-form .button {
   justify-self: start;
 }
-
-/* ==========================================
-   RESPONSIVE - HOMEPAGE
-========================================== */
-
-@media (max-width: 800px) {
-  .site-header {
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 12px 18px;
-  }
-
-  .header-actions {
-    margin-inline-start: 0;
-  }
-
-  .primary-nav {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 22px;
-    padding-top: 6px;
-  }
-
-  .landing-hero {
-    grid-template-columns: 1fr;
-    gap: 45px;
-    padding: 48px 25px;
-  }
-
-  .hero-copy {
-    text-align: center;
-  }
-
-  .hero-copy p {
-    margin: auto;
-  }
-
-  .hero-actions,
-  .hero-benefits {
-    justify-content: center;
-  }
-
-  .book-showcase {
-    max-width: 550px;
-    margin: auto;
-    width: 100%;
-  }
-
-  .step-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Authentication Layout */
-
-  .auth-layout {
-    grid-template-columns: 1fr;
-    width: calc(100% - 28px);
-    margin: 22px auto;
-  }
-
-  .auth-side {
-    min-height: 160px;
-    padding: 26px;
-  }
-
-  .auth-side h2 {
-    margin: 20px 0 0;
-    font-size: 24px;
-  }
-
-  .auth-side p {
-    margin: 0;
-  }
-
-  .auth-content {
-    padding: 30px 24px;
-  }
-}
-
-/* ==========================================
-   RESPONSIVE - MOBILE
-========================================== */
-
-@media (max-width: 480px) {
-  .header-actions {
-    display: none;
-  }
-
-  .site-header {
-    justify-content: center;
-  }
-
-  .brand strong {
-    font-size: 27px;
-  }
-
-  .landing-hero {
-    padding: 35px 18px;
-  }
-
-  .hero-copy h1 {
-    font-size: 35px;
-  }
-
-  .book-paper {
-    padding: 30px 20px;
-    min-height: 300px;
-  }
-
-  .book-footer {
-    font-size: 9px;
-  }
-
-  .auth-form-wrap h1 {
-    font-size: 29px;
-  }
-
-  .auth-side {
-    min-height: 130px;
-  }
-
-  .auth-content {
-    padding: 25px 18px;
-  }
-
-  .utility-card {
-    padding: 30px 22px;
-  }
-}
-
-/* ==========================================
-   RESPONSIVE - AUTHOR DASHBOARD
-========================================== */
 
 @media (max-width: 900px) {
   .dashboard-grid {
