@@ -27,7 +27,17 @@ import Auditions from "./pagesStructure/pages/Auditions";
 import AuthorDashboard from "./pagesStructure/pages/AuthorDashboard";
 import MyBooks from "./pagesStructure/pages/MyBooks";
 import UploadBooks from "./pagesStructure/pages/UploadBooks";
-
+// Narrator Pages - Norah
+import NarratorLayout from "./pagesStructure/components/NarratorLayout";
+import NarratorDashboard from "./pagesStructure/pages/narrator/NarratorDashboard";
+import NarratorProfile from "./pagesStructure/pages/narrator/NarratorProfile";
+import VoiceSamples from "./pagesStructure/pages/narrator/VoiceSamples";
+import BrowseProjects from "./pagesStructure/pages/narrator/BrowseProjects";
+import ProjectDetails from "./pagesStructure/pages/narrator/ProjectDetails";
+import MyAuditions from "./pagesStructure/pages/narrator/MyAuditions";
+import MyProjects from "./pagesStructure/pages/narrator/MyProjects";
+import ProjectWork from "./pagesStructure/pages/narrator/ProjectWork";
+import Payments from "./pagesStructure/pages/narrator/Payments";
 import "./App.css";
 
 // Layout for public pages
@@ -134,12 +144,6 @@ function App() {
             element={<ForgotPassword />}
           />
 
-          {/* Narrator Dashboard - Temporary */}
-          <Route
-            path="/narrator/dashboard"
-            element={<DashboardPreview />}
-          />
-
           {/* Admin Dashboard - Temporary */}
           <Route
             path="/admin/dashboard"
@@ -193,7 +197,19 @@ function App() {
           />
 
         </Route>
-
+        {/* Narrator Pages - Norah */}
+        <Route path="/narrator" element={<NarratorLayout />}>
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<NarratorDashboard />} />
+          <Route path="profile" element={<NarratorProfile />} />
+          <Route path="samples" element={<VoiceSamples />} />
+           <Route path="projects" element={<BrowseProjects />} />
+           <Route path="projects/:projectId" element={<ProjectDetails />} />
+           <Route path="auditions" element={<MyAuditions />} />
+           <Route path="my-projects" element={<MyProjects />} />
+          <Route path="my-projects/:projectId" element={<ProjectWork />} />
+          <Route path="payments" element={<Payments />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
