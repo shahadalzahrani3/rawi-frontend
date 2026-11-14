@@ -649,6 +649,23 @@ select:focus-visible {
   color: #fff;
 }
 
+.sidebar-logout {
+  margin-top: auto;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  text-align: right;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+.sidebar-logout:hover {
+  background: #424b49;
+}
+
 /* ==========================================
    AUTHOR PAGE HEADINGS
 ========================================== */

@@ -1,7 +1,13 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("rawiDemoUser");
+    navigate("/");
+  };
 
   return (
     <aside className="sidebar">
@@ -23,6 +29,9 @@ function Sidebar() {
           التسليمات
         </Link>
       </nav>
+      <button className="sidebar-logout" type="button" onClick={handleLogout}>
+        تسجيل الخروج
+      </button>
     </aside>
   );
 }
