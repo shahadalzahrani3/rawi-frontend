@@ -37,6 +37,7 @@ import ProjectDetails from "./pagesStructure/pages/narrator/ProjectDetails";
 import MyAuditions from "./pagesStructure/pages/narrator/MyAuditions";
 import MyProjects from "./pagesStructure/pages/narrator/MyProjects";
 import ProjectWork from "./pagesStructure/pages/narrator/ProjectWork";
+import Payments from "./pagesStructure/pages/narrator/Payments";
 import "./App.css";
 
 // Layout for public pages
@@ -207,6 +208,7 @@ function App() {
            <Route path="auditions" element={<MyAuditions />} />
            <Route path="my-projects" element={<MyProjects />} />
           <Route path="my-projects/:projectId" element={<ProjectWork />} />
+          <Route path="payments" element={<Payments />} />
         </Route>
       </Routes>
     </BrowserRouter>

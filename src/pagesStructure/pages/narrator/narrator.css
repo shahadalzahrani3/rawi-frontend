@@ -1134,3 +1134,25 @@
   margin-top: 6px;
   font-size: 12px;
 }
+/* ==========================================
+   PAYMENTS
+========================================== */
+
+.nr-stats-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nr-footnote {
+  margin: 16px 0 0;
+  padding: 14px 18px;
+  border-inline-start: 3px solid var(--muted);
+  background: #e9eae6;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .nr-stats-3 {
+    grid-template-columns: 1fr;
+  }
+}
