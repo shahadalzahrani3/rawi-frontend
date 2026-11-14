@@ -13,6 +13,9 @@ function Sidebar() {
         <Link className={pathname === "/books" ? "active" : ""} to="/books">
           مشاريعي
         </Link>
+        <Link className={pathname === "/profile" ? "active" : ""} to="/profile">
+          الملف الشخصي
+        </Link>
         <Link className={pathname === "/upload" ? "active" : ""} to="/upload">
           إضافة كتاب
         </Link>

@@ -236,6 +236,42 @@
   justify-self: start;
 }
 
+.profile-form {
+  display: grid;
+  gap: 12px;
+  width: min(100%, 640px);
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.profile-form label {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.profile-form input {
+  min-height: 46px;
+  margin-bottom: 8px;
+  padding: 11px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--color-text);
+}
+
+.profile-form .button {
+  justify-self: start;
+  margin-top: 8px;
+}
+
+.profile-message {
+  margin: 0;
+  color: var(--color-primary);
+}
+
 @media (max-width: 900px) {
   .dashboard-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

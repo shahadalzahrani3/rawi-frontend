@@ -3,6 +3,7 @@ import Sidebar from "./pagesStructure/components/Sidebar";
 import Auditions from "./pagesStructure/pages/Auditions";
 import AuthorDashboard from "./pagesStructure/pages/AuthorDashboard";
 import MyBooks from "./pagesStructure/pages/MyBooks";
+import Profile from "./pagesStructure/pages/Profile";
 import UploadBooks from "./pagesStructure/pages/UploadBooks";
 import "./App.css";
 
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<AuthorDashboard />} />
             <Route path="/books" element={<MyBooks />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/upload" element={<UploadBooks />} />
             <Route path="/auditions" element={<Auditions />} />
           </Routes>
