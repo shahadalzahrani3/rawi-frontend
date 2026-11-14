@@ -894,3 +894,143 @@
     flex: 1 1 45%;
   }
 }
+/* ==========================================
+   PROJECT DETAILS + AUDITION FORM
+========================================== */
+
+.nr-back {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.nr-back:hover {
+  color: var(--ink);
+}
+
+.nr-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(300px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.nr-stack {
+  display: grid;
+  gap: 20px;
+}
+
+.nr-text {
+  line-height: 1.9;
+}
+
+.nr-meta-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 16px 0 10px;
+}
+
+.nr-meta-grid div {
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nr-passage {
+  margin: 14px 0 18px;
+  padding: 18px 20px;
+  border-inline-start: 3px solid var(--ink);
+  background: #f6f6f3;
+  font-size: 18px;
+  line-height: 2;
+}
+
+.nr-subhead {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+
+.nr-side {
+  position: sticky;
+  top: 20px;
+}
+
+.nr-side h2 {
+  margin-bottom: 4px;
+}
+
+.nr-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+}
+
+.nr-tabs button {
+  padding: 10px 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nr-tabs button[aria-selected="true"] {
+  border-bottom-color: var(--ink);
+  color: var(--ink);
+}
+
+.nr-recorder {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f6f6f3;
+}
+
+.nr-recorder audio {
+  width: 100%;
+}
+
+.nr-timer {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.nr-timer.is-live {
+  color: #ac3325;
+  font-weight: 700;
+}
+
+.nr-rec-stop {
+  background: #ac3325 !important;
+  border-color: #ac3325 !important;
+}
+
+.nr-check {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.7;
+}
+
+.nr-check input {
+  margin-top: 5px;
+}
+
+.nr-empty-title {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+@media (max-width: 1000px) {
+  .nr-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nr-side {
+    position: static;
+  }
+
+  .nr-meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -33,6 +33,7 @@ import NarratorDashboard from "./pagesStructure/pages/narrator/NarratorDashboard
 import NarratorProfile from "./pagesStructure/pages/narrator/NarratorProfile";
 import VoiceSamples from "./pagesStructure/pages/narrator/VoiceSamples";
 import BrowseProjects from "./pagesStructure/pages/narrator/BrowseProjects";
+import ProjectDetails from "./pagesStructure/pages/narrator/ProjectDetails";
 import "./App.css";
 
 // Layout for public pages
@@ -199,6 +200,7 @@ function App() {
           <Route path="profile" element={<NarratorProfile />} />
           <Route path="samples" element={<VoiceSamples />} />
            <Route path="projects" element={<BrowseProjects />} />
+           <Route path="projects/:projectId" element={<ProjectDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>
