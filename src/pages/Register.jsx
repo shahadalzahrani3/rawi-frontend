@@ -1,162 +1,315 @@
+
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  digestPassword,
+  readAccounts,
+  writeAccounts
+} from "../utils/demoAccounts";
 
 function Register() {
   const navigate = useNavigate();
+  const [params] = useSearchParams();
 
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     password: "",
     confirmPassword: "",
-    role: "author"
+    role: params.get("role") === "narrator"
+      ? "narrator"
+      : "author"
   });
 
   const [error, setError] = useState("");
+  const [pending, setPending] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  // Update form fields
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+
     setError("");
   };
 
-  const handleSubmit = (e) => {
+  // Validate and submit registration
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.name.trim() || !form.email.trim() ||
-        !form.password || !form.confirmPassword) {
-      setError("Please fill in all fields.");
+    // Check empty fields
+    if (Object.values(form).some((value) => !value.trim())) {
+      setError("يرجى تعبئة جميع الحقول.");
       return;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      setError("Please enter a valid email address.");
+    // Validate email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      setError("يرجى إدخال بريد إلكتروني صحيح.");
       return;
     }
 
-    if (form.password.length < 8) {
-      setError("Password must be at least 8 characters.");
+    // Validate phone number
+    if (!/^\+?[\d\s-]{9,15}$/.test(form.phone.trim())) {
+      setError("يرجى إدخال رقم هاتف صحيح.");
       return;
     }
 
+    // Validate password
+    if (
+      form.password.length < 8 ||
+      !/[A-Za-z\u0621-\u064A]/.test(form.password) ||
+      !/\d/.test(form.password)
+    ) {
+      setError(
+        "كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل، وحرف ورقم."
+      );
+      return;
+    }
+
+    // Confirm passwords match
     if (form.password !== form.confirmPassword) {
-      setError("Passwords do not match.");
+      setError("كلمتا المرور غير متطابقتين.");
       return;
     }
 
-    const accounts = JSON.parse(
-      localStorage.getItem("rawiDemoAccounts") || "[]"
-    );
+    const email = form.email.trim().toLowerCase();
 
-    if (accounts.some(
-      (user) => user.email === form.email.trim().toLowerCase()
-    )) {
-      setError("This email is already registered.");
+    // Check if email already exists
+    if (readAccounts().some((account) => account.email === email)) {
+      setError("هذا البريد الإلكتروني مسجل مسبقاً.");
       return;
     }
 
-   
-    const account = {
-      name: form.name.trim(),
-      email: form.email.trim().toLowerCase(),
-      role: form.role
-    };
+    setPending(true);
 
-    localStorage.setItem(
-      "rawiDemoAccounts",
-      JSON.stringify([...accounts, account])
-    );
+    try {
+      // Demo password verification only
+      const salt = crypto.randomUUID();
+      const hash = await digestPassword(form.password, salt);
 
-    navigate("/login", {
-      state: { message: "Registration successful! Please log in." }
-    });
+      const newAccount = {
+        name: form.name.trim(),
+        email: email,
+        phone: form.phone.trim(),
+        role: form.role,
+        salt: salt,
+        hash: hash,
+        active: false,
+        status: "normal",
+        failedAttempts: 0
+      };
+
+      // Save demo account
+      writeAccounts([
+        ...readAccounts(),
+        newAccount
+      ]);
+
+      // Navigate to demo activation page
+      navigate(`/activate?email=${encodeURIComponent(email)}`);
+
+    } catch {
+      setError("تعذر إنشاء الحساب التجريبي. حاول مرة أخرى.");
+    } finally {
+      setPending(false);
+    }
   };
 
   return (
-    <main className="auth-page">
-      <div className="auth-card">
-        <h1>Create an Account</h1>
-        <p>Join Rawi and bring stories to life.</p>
+    <main className="auth-layout" dir="rtl">
 
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Full Name</label>
-          <input
-            id="name"
-            name="name"
-            placeholder="Enter your full name"
-            value={form.name}
-            onChange={handleChange}
-          />
+      {/* Right Side - Welcome Panel */}
+      <aside className="auth-side">
 
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            value={form.email}
-            onChange={handleChange}
-          />
+        <div className="auth-side-brand">
+          راوي
+        </div>
 
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type={showPassword ? "text" : "password"}
-            name="password"
-            placeholder="At least 8 characters"
-            value={form.password}
-            onChange={handleChange}
-          />
+        <div>
+          <h2>لكل قصة صوت</h2>
 
-          <label htmlFor="confirmPassword">
-            Confirm Password
-          </label>
-          <input
-            id="confirmPassword"
-            type={showPassword ? "text" : "password"}
-            name="confirmPassword"
-            placeholder="Confirm your password"
-            value={form.confirmPassword}
-            onChange={handleChange}
-          />
+          <p>
+            أنشئ حسابك وابدأ رحلتك في صناعة
+            الكتب الصوتية العربية.
+          </p>
+        </div>
 
-          <label className="checkbox-label">
+      </aside>
+
+      {/* Left Side - Registration Form */}
+      <section className="auth-content">
+
+        <div className="auth-form-wrap">
+
+          <span className="eyebrow">
+            إنشاء حساب
+          </span>
+
+          <h1>انضم إلى راوي</h1>
+
+          <p className="form-intro">
+            ابدأ رحلتك معنا
+          </p>
+
+          <form onSubmit={handleSubmit} noValidate>
+
+            {/* Full Name */}
+            <label htmlFor="name">
+              الاسم الكامل
+            </label>
+
             <input
-              type="checkbox"
-              checked={showPassword}
-              onChange={(e) =>
-                setShowPassword(e.target.checked)
-              }
+              id="name"
+              name="name"
+              type="text"
+              placeholder="أدخل اسمك الكامل"
+              autoComplete="name"
+              value={form.name}
+              onChange={handleChange}
             />
-            Show passwords
-          </label>
 
-          <label htmlFor="role">I am joining as</label>
-          <select
-            id="role"
-            name="role"
-            value={form.role}
-            onChange={handleChange}
-          >
-            <option value="author">Author</option>
-            <option value="narrator">Narrator</option>
-            <option value="listener">Listener</option>
-          </select>
+            {/* Email */}
+            <label htmlFor="email">
+              البريد الإلكتروني
+            </label>
 
-          {error && <p className="form-error" role="alert">{error}</p>}
+            <input
+              id="email"
+              name="email"
+              type="email"
+              dir="ltr"
+              placeholder="sara@example.com"
+              autoComplete="email"
+              value={form.email}
+              onChange={handleChange}
+            />
 
-          <button className="auth-button" type="submit">
-            Create Account
-          </button>
-        </form>
+            {/* Phone Number */}
+            <label htmlFor="phone">
+              رقم الهاتف
+            </label>
 
-        <p className="auth-footer">
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
-      </div>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              dir="ltr"
+              placeholder="05xxxxxxxx"
+              autoComplete="tel"
+              value={form.phone}
+              onChange={handleChange}
+            />
+
+            {/* Role Selection */}
+            <label htmlFor="role">
+              نوع الحساب
+            </label>
+
+            <select
+              id="role"
+              name="role"
+              value={form.role}
+              onChange={handleChange}
+            >
+              <option value="author">
+                مؤلف
+              </option>
+
+              <option value="narrator">
+                راوٍ
+              </option>
+            </select>
+
+            {/* Password */}
+            <label htmlFor="password">
+              كلمة المرور
+            </label>
+
+            <input
+              id="password"
+              name="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="8 أحرف مع حرف ورقم"
+              autoComplete="new-password"
+              value={form.password}
+              onChange={handleChange}
+            />
+
+            {/* Confirm Password */}
+            <label htmlFor="confirmPassword">
+              تأكيد كلمة المرور
+            </label>
+
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              type={showPassword ? "text" : "password"}
+              placeholder="أعد إدخال كلمة المرور"
+              autoComplete="new-password"
+              value={form.confirmPassword}
+              onChange={handleChange}
+            />
+
+            {/* Show Password */}
+            <label className="check-label">
+
+              <input
+                type="checkbox"
+                checked={showPassword}
+                onChange={(e) =>
+                  setShowPassword(e.target.checked)
+                }
+              />
+
+              إظهار كلمة المرور
+
+            </label>
+
+            {/* Error Message */}
+            {error && (
+              <p className="form-error" role="alert">
+                {error}
+              </p>
+            )}
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="button button-dark button-full"
+              disabled={pending}
+            >
+              {pending
+                ? "جارٍ إنشاء الحساب..."
+                : "إنشاء حساب"}
+            </button>
+
+          </form>
+
+          {/* Login Link */}
+          <p className="form-bottom">
+            لديك حساب بالفعل؟{" "}
+            <Link to="/login">
+              تسجيل الدخول
+            </Link>
+          </p>
+
+          <p className="demo-disclaimer">
+            نموذج تفاعلي للتجربة فقط؛
+            تفعيل البريد الحقيقي يحتاج إلى خادم خلفي.
+          </p>
+
+        </div>
+
+      </section>
+
     </main>
   );
 }
 
 export default Register;
-
