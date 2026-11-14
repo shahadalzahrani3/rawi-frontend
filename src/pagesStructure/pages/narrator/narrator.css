@@ -79,6 +79,7 @@
 .nr-body {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
   min-height: calc(100vh - 77px);
 }
 
@@ -1032,5 +1033,48 @@
 
   .nr-meta-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* ==========================================
+   MY AUDITIONS
+========================================== */
+
+.nr-page-tabs {
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.nr-page-tabs button {
+  flex: 0 0 auto;
+}
+
+.nr-table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.nr-table-card .nr-table th:first-child,
+.nr-table-card .nr-table td:first-child {
+  padding-inline-start: 24px;
+}
+
+.nr-text-link {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+@media (max-width: 560px) {
+  /* Fix: the table itself must also be a block, or it stays wider than the screen */
+  .nr-table,
+  .nr-table tbody {
+    display: block;
+  }
+
+  .nr-table-card {
+    padding: 0 16px;
+  }
+
+  .nr-table-card .nr-table td:first-child {
+    padding-inline-start: 0;
   }
 }
