@@ -136,12 +136,6 @@ function App() {
             element={<ForgotPassword />}
           />
 
-          //fixed temp to permanent narrator dashboard
-          <Route
-            path="/narrator/dashboard"
-            element={<DashboardPreview />}
-          />
-
           {/* Admin Dashboard - Temporary */}
           <Route
             path="/admin/dashboard"
@@ -200,7 +194,6 @@ function App() {
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<NarratorDashboard />} />
         </Route>
-        
       </Routes>
     </BrowserRouter>
   );
