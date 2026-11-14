@@ -1117,3 +1117,118 @@ select:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+
+.admin-layout {
+  background: #f7f7f5;
+}
+
+/* Admin sidebar */
+.admin-layout .sidebar {
+  background: #303634;
+  color: #ffffff;
+}
+
+.admin-layout .sidebar-brand {
+  color: #ffffff;
+}
+
+.admin-layout .sidebar nav a {
+  color: #e0e3e0;
+  border-radius: 5px;
+}
+
+.admin-layout .sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.admin-layout .sidebar nav a.active {
+  background: #ffffff;
+  color: #252b2a;
+}
+
+/* Admin headings */
+.admin-layout .page-section > h1 {
+  color: #212728;
+  font-weight: 600;
+}
+
+/* Admin cards */
+.admin-layout .dashboard-card {
+  background: #ffffff;
+  border: 1px solid #d5d8d4;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.admin-layout .dashboard-card h2 {
+  color: #76807d;
+}
+
+.admin-layout .dashboard-card p {
+  color: #252b2a;
+}
+
+/* Admin tables */
+.admin-layout .books-table-wrap {
+  background: #ffffff;
+  border: 1px solid #d5d8d4;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.admin-layout .books-table th {
+  background: #edeeeb;
+  color: #252b2a;
+}
+
+.admin-layout .books-table th,
+.admin-layout .books-table td {
+  border-bottom: 1px solid #d5d8d4;
+}
+
+/* Admin inputs */
+.admin-layout input,
+.admin-layout select,
+.admin-layout textarea {
+  border: 1px solid #cdd2cd;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #252b2a;
+}
+
+/* Admin buttons */
+.admin-layout .button {
+  background: #252b2a;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.admin-layout .button:hover {
+  background: #424b49;
+}
+
+.admin-layout .button-secondary {
+  background: #ffffff;
+  color: #252b2a;
+  border: 1px solid #bfc4c1;
+}
+
+.admin-layout .button-secondary:hover {
+  background: #f1f3f1;
+}
+
+/* Admin forms/profile */
+.admin-layout .upload-form,
+.admin-layout .admin-profile-form,
+.admin-layout .admin-profile-card {
+  background: #ffffff;
+  border: 1px solid #d5d8d4;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.admin-layout .profile-avatar {
+  background: #edeeeb;
+  color: #252b2a;
+}

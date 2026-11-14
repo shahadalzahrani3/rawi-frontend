@@ -3,7 +3,7 @@ import AdminSidebar from "./AdminSidebar";
 
 function AdminLayout() {
   return (
-    <div className="app-layout">
+    <div className="app-layout admin-layout">
       <AdminSidebar />
 
       <main>
