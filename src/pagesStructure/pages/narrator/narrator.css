@@ -1,0 +1,255 @@
+/* ==========================================
+   NARRATOR WORKSPACE
+========================================== */
+
+.nr-app {
+  min-height: 100vh;
+  background: #f3f3ef;
+  color: var(--ink);
+}
+
+/* ---------- Top bar ---------- */
+
+.nr-topbar {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  min-height: 76px;
+  padding: 12px 32px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.nr-topbar-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nr-topbar-links a {
+  color: var(--muted);
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.nr-topbar-links a:hover,
+.nr-topbar-links a.active {
+  color: var(--ink);
+}
+
+.nr-topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-inline-start: auto;
+}
+
+.nr-circle {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.nr-avatar {
+  border-color: transparent;
+  background: #dfe0dc;
+  font-weight: 700;
+}
+
+.nr-user-name {
+  font-size: 14px;
+}
+
+.nr-logout {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+/* ---------- Body: sidebar + main ---------- */
+
+.nr-body {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  min-height: calc(100vh - 77px);
+}
+
+.nr-main {
+  min-width: 0;
+  padding: 40px clamp(20px, 3vw, 40px) 60px;
+}
+
+/* ---------- Sidebar ---------- */
+
+.nr-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 16px;
+  background: #ebebe7;
+  border-inline-end: 1px solid var(--line);
+}
+
+.nr-sidebar-label {
+  margin: 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.nr-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nr-sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 15px;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+}
+
+.nr-sidebar-nav a:hover {
+  background: #e0e1dc;
+}
+
+.nr-sidebar-nav a.active {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+}
+
+.nr-sidebar-num {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.nr-sidebar-nav a.active .nr-sidebar-num {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nr-help {
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f3f3ef;
+  font-size: 13px;
+}
+
+.nr-help p {
+  margin: 6px 0 10px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.nr-help a {
+  color: var(--ink);
+}
+
+/* ---------- Page header ---------- */
+
+.nr-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.nr-eyebrow {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nr-page-header h1 {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 600;
+}
+
+.nr-subtitle {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+/* ---------- Status badges ---------- */
+
+.nr-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.nr-badge-pending { background: #efe8da; color: #7a6136; }
+.nr-badge-success { background: #e3eee6; color: #2f6a4a; }
+.nr-badge-danger  { background: #f5e3e1; color: #9b3b33; }
+.nr-badge-info    { background: #e6eaee; color: #3d5266; }
+.nr-badge-muted   { background: #ebebe8; color: #5f6663; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .nr-topbar-links {
+    display: none;
+  }
+
+  .nr-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .nr-sidebar {
+    padding: 12px 16px;
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nr-sidebar-label,
+  .nr-help {
+    display: none;
+  }
+
+  .nr-sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .nr-sidebar-nav a {
+    flex: 0 0 auto;
+    padding: 9px 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nr-topbar {
+    padding: 10px 16px;
+  }
+
+  .nr-user-name {
+    display: none;
+  }
+
+  .nr-page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
