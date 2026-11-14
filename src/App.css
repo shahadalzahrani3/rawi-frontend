@@ -299,3 +299,66 @@
     grid-template-columns: 1fr;
   }
 }
+.admin-profile-layout {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.admin-profile-card {
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #edf1ee;
+  color: var(--color-primary);
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.admin-profile-form {
+  display: grid;
+  gap: 14px;
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.admin-profile-form input,
+.admin-profile-form textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  font: inherit;
+}
+
+.admin-profile-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.admin-profile-form .button {
+  justify-self: start;
+}
+
+@media (max-width: 800px) {
+  .admin-profile-layout {
+    grid-template-columns: 1fr;
+  }
+}

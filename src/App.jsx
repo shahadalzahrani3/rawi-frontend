@@ -14,6 +14,7 @@ import AdminProjects from "./pagesStructure/pages/admin/AdminProjects";
 import AdminDeliveries from "./pagesStructure/pages/admin/AdminDeliveries";
 import AdminTransactions from "./pagesStructure/pages/admin/AdminTransactions";
 import AdminCommission from "./pagesStructure/pages/admin/AdminCommission";
+import AdminProfile from "./pagesStructure/pages/admin/AdminProfile";
 import "./App.css";
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path="deliveries" element={<AdminDeliveries />} />
           <Route path="transactions" element={<AdminTransactions />} />
           <Route path="commission" element={<AdminCommission />} />
+          <Route path="profile" element={<AdminProfile />} />
 
         </Route>
       </Routes>
