@@ -5,9 +5,7 @@ import {
   Route,
   Link,
   Navigate,
-  Outlet,
-  useParams,
-  useNavigate
+  Outlet
 } from "react-router-dom";
 
 // Shahad - Homepage and Authentication
@@ -64,65 +62,6 @@ function AuthorLayout() {
   );
 }
 
-// Temporary Narrator and Admin Dashboard
-function DashboardPreview() {
-  const { role } = useParams();
-  const navigate = useNavigate();
-
-  const session = JSON.parse(
-    sessionStorage.getItem("rawiDemoUser") || "null"
-  );
-
-  if (!session || session.role !== role) {
-    return (
-      <main className="utility-page" dir="rtl">
-        <section className="utility-card">
-          <h1>يرجى تسجيل الدخول أولاً</h1>
-
-          <Link to="/login" className="button button-dark">
-            تسجيل الدخول
-          </Link>
-        </section>
-      </main>
-    );
-  }
-
-  const dashboardTitles = {
-    narrator: "لوحة تحكم الراوي",
-    admin: "لوحة تحكم المسؤول"
-  };
-
-  const handleLogout = () => {
-    sessionStorage.removeItem("rawiDemoUser");
-    navigate("/login");
-  };
-
-  return (
-    <main className="utility-page" dir="rtl">
-      <section className="utility-card">
-
-        <h1>{dashboardTitles[role]}</h1>
-
-        <h2>مرحباً، {session.name}</h2>
-
-        <p>
-          تم تسجيل الدخول بنجاح.
-          سيتم إضافة لوحة التحكم الفعلية
-          بعد دمج عمل الفريق.
-        </p>
-
-        <button
-          className="button button-outline"
-          onClick={handleLogout}
-        >
-          تسجيل الخروج
-        </button>
-
-      </section>
-    </main>
-  );
-}
-
 // Main Application
 function App() {
   return (
@@ -135,9 +74,6 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/activate" element={<Activate />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-
-          {/* Admin Dashboard - Temporary */}
-          <Route path="/admin/dashboard" element={<DashboardPreview />} />
 
           {/* Error Page */}
           <Route
