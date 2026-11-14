@@ -25,6 +25,7 @@ import Sidebar from "./pagesStructure/components/Sidebar";
 import Auditions from "./pagesStructure/pages/Auditions";
 import AuthorDashboard from "./pagesStructure/pages/AuthorDashboard";
 import MyBooks from "./pagesStructure/pages/MyBooks";
+import Profile from "./pagesStructure/pages/Profile";
 import UploadBooks from "./pagesStructure/pages/UploadBooks";
 
 // Admin Pages
@@ -69,7 +70,6 @@ function AuthorLayout() {
   return (
     <div className="app-layout">
       <Sidebar />
-
       <main>
         <Outlet />
       </main>
@@ -114,7 +114,6 @@ function DashboardPreview() {
     <main className="utility-page" dir="rtl">
       <section className="utility-card">
         <h1>{dashboardTitles[role]}</h1>
-
         <h2>مرحباً، {session.name}</h2>
 
         <p>
@@ -145,7 +144,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/activate" element={<Activate />} />
-
           <Route
             path="/forgot-password"
             element={<ForgotPassword />}
@@ -181,6 +179,7 @@ function App() {
           />
 
           <Route path="/books" element={<MyBooks />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/upload" element={<UploadBooks />} />
           <Route path="/auditions" element={<Auditions />} />
         </Route>

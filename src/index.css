@@ -21,17 +21,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Author Dashboard Colors */
-  --color-primary: #23594b;
-  --color-primary-dark: #194438;
+  /* Author dashboard aliases to the shared application palette */
+  --color-primary: var(--ink);
+  --color-primary-dark: #424b49;
   --color-accent: #d29b52;
 
-  --color-text: #23332f;
-  --color-muted: #687772;
-  --color-border: #e0e7e2;
-  --color-surface: #ffffff;
+  --color-text: var(--ink);
+  --color-muted: var(--muted);
+  --color-border: var(--line);
+  --color-surface: var(--paper);
 
-  --shadow-card: 0 8px 24px rgba(31, 63, 51, 0.07);
+  --shadow-card: 0 8px 24px rgba(37, 43, 42, 0.06);
 }
 
 /* ========================================
