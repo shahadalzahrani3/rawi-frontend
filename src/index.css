@@ -1,54 +1,124 @@
 
-/* Arabic Font - Cairo */
+/* ========================================
+   RAWI - ARABIC FONT
+======================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
 
-/* Global Website Styling */
+/* ========================================
+   GLOBAL WEBSITE STYLING
+======================================== */
+
 :root {
   font-family: 'Cairo', Tahoma, Arial, sans-serif;
+
   color: #212728;
   background: #f7f7f5;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Author Dashboard Colors */
+  --color-primary: #23594b;
+  --color-primary-dark: #194438;
+  --color-accent: #d29b52;
+
+  --color-text: #23332f;
+  --color-muted: #687772;
+  --color-border: #e0e7e2;
+  --color-surface: #ffffff;
+
+  --shadow-card: 0 8px 24px rgba(31, 63, 51, 0.07);
 }
 
-/* Apply Border Box to All Elements */
+/* ========================================
+   GLOBAL BOX SIZING
+======================================== */
+
 * {
   box-sizing: border-box;
 }
 
-/* Body Styling */
+/* ========================================
+   BODY
+======================================== */
+
 body {
   margin: 0;
   min-width: 320px;
+  min-height: 100vh;
 }
 
-/* Form Elements */
+/* ========================================
+   FORM ELEMENTS
+======================================== */
+
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
 
-/* Buttons */
+/* ========================================
+   BUTTONS
+======================================== */
+
 button {
   cursor: pointer;
 }
 
-/* Links */
+/* ========================================
+   LINKS
+======================================== */
+
 a {
   color: inherit;
 }
 
-/* Main React Container */
+/* ========================================
+   MAIN REACT CONTAINER
+======================================== */
+
 #root {
   min-height: 100vh;
 }
 
-/* Headings and Paragraphs */
+/* ========================================
+   HEADINGS AND PARAGRAPHS
+======================================== */
+
 h1,
 h2,
 h3,
 p {
   margin-top: 0;
+}
+
+/* ========================================
+   MOBILE TOUCH STYLING
+======================================== */
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(210, 155, 82, 0.55);
+  outline-offset: 2px;
 }

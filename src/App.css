@@ -1,5 +1,7 @@
 
-/* ===== Rawi Colors ===== */
+/* ========================================
+   RAWI - SHARED COLORS
+======================================== */
 
 :root {
   --ink: #252b2a;
@@ -9,7 +11,9 @@
   --fog: #edeeeb;
 }
 
-/* ===== Navbar ===== */
+/* ========================================
+   NAVBAR - SHAHAD
+======================================== */
 
 .site-header {
   background: #ffffff;
@@ -73,7 +77,9 @@
   gap: 10px;
 }
 
-/* ===== Buttons ===== */
+/* ========================================
+   SHARED BUTTONS
+======================================== */
 
 .button {
   display: inline-flex;
@@ -123,7 +129,9 @@ select:focus-visible {
   cursor: wait;
 }
 
-/* ===== Homepage ===== */
+/* ========================================
+   HOMEPAGE - SHAHAD
+======================================== */
 
 .home-page {
   background: linear-gradient(180deg, #e9e9e6, #f7f7f5);
@@ -177,7 +185,9 @@ select:focus-visible {
   margin-top: 22px;
 }
 
-/* ===== Audiobook Preview ===== */
+/* ========================================
+   AUDIOBOOK PREVIEW
+======================================== */
 
 .book-showcase {
   display: flex;
@@ -239,7 +249,9 @@ select:focus-visible {
   color: #7a8580;
 }
 
-/* ===== How Rawi Works ===== */
+/* ========================================
+   HOW RAWI WORKS
+======================================== */
 
 .how-section {
   max-width: 1250px;
@@ -280,7 +292,268 @@ select:focus-visible {
   font-size: 14px;
 }
 
-/* ===== Responsive Design ===== */
+/* ========================================
+   AUTHOR DASHBOARD - TEAMMATE
+======================================== */
+
+#root {
+  min-height: 100vh;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  direction: rtl;
+  min-height: 100vh;
+}
+
+.app-layout main {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: clamp(24px, 5vw, 56px);
+}
+
+/* ========================================
+   AUTHOR SIDEBAR
+======================================== */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  height: 100vh;
+  padding: 32px 20px;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.sidebar-brand {
+  margin: 0;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar nav a {
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+/* ========================================
+   AUTHOR PAGE HEADINGS
+======================================== */
+
+.page-section > h1,
+.page-section > h2,
+.upload-form > h1 {
+  margin: 0 0 28px;
+  color: var(--color-text);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+}
+
+/* ========================================
+   AUTHOR DASHBOARD CARDS
+======================================== */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.dashboard-card,
+.audition-card {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.dashboard-card {
+  padding: 24px;
+}
+
+.dashboard-card h2 {
+  margin: 0 0 14px;
+  color: var(--color-muted);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.dashboard-card p {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 36px;
+  font-weight: 750;
+}
+
+/* ========================================
+   AUDITIONS
+======================================== */
+
+.audition-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 260px), 1fr)
+  );
+  gap: 18px;
+}
+
+.audition-card {
+  padding: 22px;
+}
+
+.audition-card h3 {
+  margin: 0 0 12px;
+  color: var(--color-text);
+  font-size: 20px;
+}
+
+.audition-card p {
+  margin: 8px 0;
+  color: var(--color-muted);
+}
+
+.audition-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ========================================
+   AUTHOR BUTTONS
+======================================== */
+
+.app-layout .button {
+  min-height: 40px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--color-primary);
+  color: white;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.app-layout .button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.app-layout .button-secondary {
+  background: #edf1ee;
+  color: var(--color-text);
+}
+
+.app-layout .button-secondary:hover {
+  background: #dfe7e1;
+}
+
+/* ========================================
+   MY BOOKS
+======================================== */
+
+.books-search {
+  width: min(100%, 380px);
+  margin-bottom: 20px;
+}
+
+.books-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+}
+
+.books-table th,
+.books-table td {
+  padding: 15px 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.books-table th {
+  background: #f0f4f1;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.books-table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ========================================
+   UPLOAD BOOK FORM
+======================================== */
+
+.upload-form {
+  display: grid;
+  gap: 16px;
+  width: min(100%, 640px);
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.upload-form > h1 {
+  margin-bottom: 4px;
+}
+
+.upload-form input,
+.upload-form select,
+.upload-form textarea,
+.books-search {
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--color-text);
+}
+
+.upload-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.upload-form .button {
+  justify-self: start;
+}
+
+/* ========================================
+   RESPONSIVE - HOMEPAGE
+======================================== */
 
 @media (max-width: 800px) {
   .site-header {
@@ -359,5 +632,55 @@ select:focus-visible {
 
   .book-footer {
     font-size: 9px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - AUTHOR DASHBOARD
+======================================== */
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .sidebar nav a {
+    flex: 0 0 auto;
+    padding: 9px 12px;
+  }
+
+  .app-layout main {
+    padding: 24px 16px;
+  }
+
+  .dashboard-grid {
+    gap: 12px;
+  }
+
+  .dashboard-card {
+    padding: 18px;
+  }
+
+  .dashboard-card p {
+    font-size: 30px;
   }
 }

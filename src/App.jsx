@@ -4,29 +4,56 @@ import {
   Routes,
   Route,
   Link,
+  Navigate,
+  Outlet,
   useParams,
   useNavigate
 } from "react-router-dom";
 
-// Shared Navbar
+// Shahad - Homepage and Authentication
 import Navbar from "./components/Navbar";
-
-// Member 1 - Shahad
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
-// Account Help Pages
 import {
   Activate,
   ForgotPassword
 } from "./pages/AccountHelp";
 
-// Shared CSS
+// Author Pages - Teammate
+import Sidebar from "./pagesStructure/components/Sidebar";
+import Auditions from "./pagesStructure/pages/Auditions";
+import AuthorDashboard from "./pagesStructure/pages/AuthorDashboard";
+import MyBooks from "./pagesStructure/pages/MyBooks";
+import UploadBooks from "./pagesStructure/pages/UploadBooks";
+
 import "./App.css";
 
-// Temporary Dashboard Component
-// Will be replaced when team members finish their pages
+// Layout for public pages
+function PublicLayout() {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
+}
+
+// Layout for Author pages
+function AuthorLayout() {
+  return (
+    <div className="app-layout">
+      <Sidebar />
+
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
+}
+
+// Temporary Narrator and Admin Dashboard
 function DashboardPreview() {
   const { role } = useParams();
   const navigate = useNavigate();
@@ -35,37 +62,25 @@ function DashboardPreview() {
     sessionStorage.getItem("rawiDemoUser") || "null"
   );
 
-  // Check if user is logged in
   if (!session || session.role !== role) {
     return (
       <main className="utility-page" dir="rtl">
-
         <section className="utility-card">
-
           <h1>يرجى تسجيل الدخول أولاً</h1>
-
-          <p>
-            يجب تسجيل الدخول للوصول إلى لوحة التحكم.
-          </p>
 
           <Link to="/login" className="button button-dark">
             تسجيل الدخول
           </Link>
-
         </section>
-
       </main>
     );
   }
 
-  // Dashboard titles
   const dashboardTitles = {
-    author: "لوحة تحكم المؤلف",
     narrator: "لوحة تحكم الراوي",
     admin: "لوحة تحكم المسؤول"
   };
 
-  // Logout
   const handleLogout = () => {
     sessionStorage.removeItem("rawiDemoUser");
     navigate("/login");
@@ -73,29 +88,16 @@ function DashboardPreview() {
 
   return (
     <main className="utility-page" dir="rtl">
-
       <section className="utility-card">
 
-        <span className="eyebrow">
-          لوحة التحكم
-        </span>
+        <h1>{dashboardTitles[role]}</h1>
 
-        <h1>
-          {dashboardTitles[role]}
-        </h1>
-
-        <h2>
-          مرحباً، {session.name}
-        </h2>
+        <h2>مرحباً، {session.name}</h2>
 
         <p>
-          تم تسجيل الدخول إلى حسابك التجريبي بنجاح.
-        </p>
-
-        <p>
-          هذه لوحة تحكم مؤقتة.
-          سيتم استبدالها بالصفحة الفعلية
-          بعد دمج عمل أعضاء الفريق.
+          تم تسجيل الدخول بنجاح.
+          سيتم إضافة لوحة التحكم الفعلية
+          بعد دمج عمل الفريق.
         </p>
 
         <button
@@ -106,7 +108,6 @@ function DashboardPreview() {
         </button>
 
       </section>
-
     </main>
   );
 }
@@ -115,87 +116,85 @@ function DashboardPreview() {
 function App() {
   return (
     <BrowserRouter>
-
-      {/* Shared Navbar */}
-      <Navbar />
-
       <Routes>
 
-        {/* Homepage */}
-        <Route
-          path="/"
-          element={<Home />}
-        />
+        {/* Public Pages - Shahad */}
+        <Route element={<PublicLayout />}>
 
-        {/* Login */}
-        <Route
-          path="/login"
-          element={<Login />}
-        />
+          <Route path="/" element={<Home />} />
 
-        {/* Registration */}
-        <Route
-          path="/register"
-          element={<Register />}
-        />
+          <Route path="/login" element={<Login />} />
 
-        {/* Account Activation */}
-        <Route
-          path="/activate"
-          element={<Activate />}
-        />
+          <Route path="/register" element={<Register />} />
 
-        {/* Forgot Password */}
-        <Route
-          path="/forgot-password"
-          element={<ForgotPassword />}
-        />
+          <Route path="/activate" element={<Activate />} />
 
-        {/* Member 2 - Author Dashboard */}
-        <Route
-          path="/author/dashboard"
-          element={<DashboardPreview />}
-        />
+          <Route
+            path="/forgot-password"
+            element={<ForgotPassword />}
+          />
 
-        {/* Member 3 - Narrator Dashboard */}
-        <Route
-          path="/narrator/dashboard"
-          element={<DashboardPreview />}
-        />
+          {/* Narrator Dashboard - Temporary */}
+          <Route
+            path="/narrator/dashboard"
+            element={<DashboardPreview />}
+          />
 
-        {/* Member 4 - Admin Dashboard */}
-        <Route
-          path="/admin/dashboard"
-          element={<DashboardPreview />}
-        />
+          {/* Admin Dashboard - Temporary */}
+          <Route
+            path="/admin/dashboard"
+            element={<DashboardPreview />}
+          />
 
-        {/* 404 - Page Not Found */}
-        <Route
-          path="*"
-          element={
-            <main className="utility-page" dir="rtl">
-              <section className="utility-card">
+          {/* Error Page */}
+          <Route
+            path="*"
+            element={
+              <main className="utility-page" dir="rtl">
+                <section className="utility-card">
+                  <h1>404 - الصفحة غير موجودة</h1>
 
-                <h1>404 - الصفحة غير موجودة</h1>
+                  <Link to="/" className="button button-dark">
+                    العودة إلى الرئيسية
+                  </Link>
+                </section>
+              </main>
+            }
+          />
 
-                <p>
-                  عذراً، الصفحة التي تبحث عنها غير موجودة.
-                </p>
+        </Route>
 
-                <Link
-                  to="/"
-                  className="button button-dark"
-                >
-                  العودة إلى الرئيسية
-                </Link>
+        {/* Author Pages - Teammate */}
+        <Route element={<AuthorLayout />}>
 
-              </section>
-            </main>
-          }
-        />
+          <Route
+            path="/author/dashboard"
+            element={<AuthorDashboard />}
+          />
+
+          <Route
+            path="/dashboard"
+            element={<Navigate to="/author/dashboard" replace />}
+          />
+
+          <Route
+            path="/books"
+            element={<MyBooks />}
+          />
+
+          <Route
+            path="/upload"
+            element={<UploadBooks />}
+          />
+
+          <Route
+            path="/auditions"
+            element={<Auditions />}
+          />
+
+        </Route>
 
       </Routes>
-
     </BrowserRouter>
   );
 }
