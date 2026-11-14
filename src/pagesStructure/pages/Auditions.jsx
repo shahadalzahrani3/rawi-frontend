@@ -36,7 +36,9 @@ function Auditions() {
               <button
                 className="button"
                 type="button"
-                onClick={() => acceptAudition(narrator.id)}
+                onClick={() => acceptAudition(narrator.id)
+                    
+                }
               >
                 قبول
               </button>
