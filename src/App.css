@@ -595,6 +595,7 @@ select:focus-visible {
   grid-template-columns: 250px minmax(0, 1fr);
   direction: rtl;
   min-height: 100vh;
+  background: #f3f3ef;
 }
 
 .app-layout main {
@@ -616,7 +617,7 @@ select:focus-visible {
   gap: 36px;
   height: 100vh;
   padding: 32px 20px;
-  background: var(--color-primary);
+  background: var(--ink);
   color: #fff;
 }
 
@@ -644,7 +645,7 @@ select:focus-visible {
 
 .sidebar nav a:hover,
 .sidebar nav a.active {
-  background: rgba(255, 255, 255, 0.14);
+  background: #424b49;
   color: #fff;
 }
 
@@ -674,7 +675,7 @@ select:focus-visible {
 .dashboard-card,
 .audition-card {
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: 8px;
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
@@ -755,7 +756,7 @@ select:focus-visible {
   min-height: 40px;
   padding: 9px 16px;
   border: 0;
-  border-radius: 9px;
+  border-radius: 5px;
   background: var(--color-primary);
   color: white;
   cursor: pointer;
@@ -770,12 +771,12 @@ select:focus-visible {
 }
 
 .app-layout .button-secondary {
-  background: #edf1ee;
+  background: #edeeeb;
   color: var(--color-text);
 }
 
 .app-layout .button-secondary:hover {
-  background: #dfe7e1;
+  background: #e0e1dc;
 }
 
 /* ==========================================
@@ -790,7 +791,7 @@ select:focus-visible {
 .books-table-wrap {
   overflow-x: auto;
   border: 1px solid var(--color-border);
-  border-radius: 14px;
+  border-radius: 8px;
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
@@ -808,7 +809,7 @@ select:focus-visible {
 }
 
 .books-table th {
-  background: #f0f4f1;
+  background: #edeeeb;
   color: var(--color-primary);
   font-weight: 700;
 }
@@ -827,7 +828,7 @@ select:focus-visible {
   width: min(100%, 640px);
   padding: clamp(20px, 4vw, 32px);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: 8px;
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
@@ -843,7 +844,7 @@ select:focus-visible {
   min-height: 46px;
   padding: 11px 13px;
   border: 1px solid var(--color-border);
-  border-radius: 9px;
+  border-radius: 5px;
   background: #fff;
   color: var(--color-text);
 }
