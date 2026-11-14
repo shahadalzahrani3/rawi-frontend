@@ -30,6 +30,7 @@ import UploadBooks from "./pagesStructure/pages/UploadBooks";
 // Narrator Pages - Norah
 import NarratorLayout from "./pagesStructure/components/NarratorLayout";
 import NarratorDashboard from "./pagesStructure/pages/narrator/NarratorDashboard";
+import NarratorProfile from "./pagesStructure/pages/narrator/NarratorProfile";
 import "./App.css";
 
 // Layout for public pages
@@ -193,6 +194,7 @@ function App() {
         <Route path="/narrator" element={<NarratorLayout />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<NarratorDashboard />} />
+          <Route path="profile" element={<NarratorProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>

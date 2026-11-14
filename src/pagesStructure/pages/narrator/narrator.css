@@ -413,3 +413,155 @@
     color: var(--muted);
   }
 }
+/* ==========================================
+   FORMS (Profile and later pages)
+========================================== */
+
+.nr-muted {
+  color: var(--muted);
+}
+
+.nr-page-alert {
+  margin: 0 0 16px;
+}
+
+.nr-form {
+  display: grid;
+  gap: 20px;
+}
+
+.nr-form label,
+.nr-form-row label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.nr-form input:not([type="checkbox"]):not([type="file"]),
+.nr-form select,
+.nr-form textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.nr-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.nr-form [aria-invalid="true"] {
+  border-color: #c4574a !important;
+  background: #fffaf9 !important;
+}
+
+.nr-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.nr-field-error {
+  color: #ac3325;
+  font-size: 12px;
+}
+
+.nr-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.nr-fieldset legend {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.nr-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nr-chip {
+  display: inline-flex !important;
+  padding: 7px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.nr-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nr-chip.is-on {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.nr-chip:focus-within {
+  outline: 3px solid #799d91;
+  outline-offset: 2px;
+}
+
+/* ---------- Profile layout ---------- */
+
+.nr-profile-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.nr-avatar-card {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.nr-avatar-lg {
+  display: grid;
+  place-items: center;
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #dfe0dc;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.nr-avatar-lg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nr-file-button {
+  position: relative;
+  margin-top: 6px;
+}
+
+.nr-file-button input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .nr-profile-grid,
+  .nr-form-row {
+    grid-template-columns: 1fr;
+  }
+}
